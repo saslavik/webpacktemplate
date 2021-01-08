@@ -2,6 +2,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require("path");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { VueLoaderPlugin } = require("vue-loader");
 
 const PATHS = {
   src: path.join(__dirname, "../src"),
@@ -30,6 +31,15 @@ module.exports = {
         exclude: "/node_modules/",
       },
       {
+        test: /\.vue$/,
+        loader: "vue-loader",
+        options: {
+          loader: {
+            scss: 'vue-style-loader!css-loader!sass-loader',
+          },
+        },
+      },
+      {
         test: /\.(png|jpg|gif|svg)$/,
         loader: "file-loader",
         options: {
@@ -40,10 +50,24 @@ module.exports = {
         test: /\.scss$/,
         use: [
           "style-loader",
-          MiniCssExtractPlugin.loader,
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              esModule: true,
+              modules: {
+                namedExport: true,
+              },
+            },
+          },
           {
             loader: "css-loader",
-            options: { sourceMap: true },
+            options: {
+              sourceMap: true,
+              esModule: true,
+              modules: {
+                namedExport: true,
+              },
+            },
           },
           {
             loader: "postcss-loader",
@@ -64,10 +88,24 @@ module.exports = {
         test: /\.css$/,
         use: [
           "style-loader",
-          MiniCssExtractPlugin.loader,
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+                esModule: true,
+                modules: {
+                  namedExport: true,
+                },
+            },
+          },
           {
             loader: "css-loader",
-            options: { sourceMap: true },
+            options: {
+              sourceMap: true,
+              esModule: true,
+              modules: {
+                namedExport: true,
+              },
+            },
           },
           {
             loader: "postcss-loader",
@@ -82,7 +120,13 @@ module.exports = {
       },
     ],
   },
+  resolve: {
+    alias: {
+      'vue$': 'vue/dist/vue.js'
+    }
+  },
   plugins: [
+    new VueLoaderPlugin(),
     new MiniCssExtractPlugin({
       filename: `${PATHS.assets}css/[name].css`,
     }),

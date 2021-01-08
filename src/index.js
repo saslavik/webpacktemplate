@@ -5,4 +5,4 @@ import './scss/main.scss';
 
 window.Vue = require('vue');
 
-Vue.component('example-component', require('./components'))
+Vue.component('example-component', require('./components/example.vue').default)
