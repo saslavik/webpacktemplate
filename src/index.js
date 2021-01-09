@@ -1,19 +1,18 @@
+import "./js/common";
+import "./css/main.css";
+import "./scss/main.scss";
 
-import './js/common';
-import './css/main.css';
-import './scss/main.scss';
+window.Vue = require("vue");
+import store from "./store";
 
-window.Vue = require('vue');
-import store from './store'
-
-Vue.component('example-component', require('./components/example.vue').default)
+Vue.component("example-component", require("./components/example.vue").default);
 
 const app = new Vue({
-  data () {
+  data() {
     return {
-      component: false,
-    }
+      component: true,
+    };
   },
   store,
-  el: '#app'
-})
+  el: "#app",
+});

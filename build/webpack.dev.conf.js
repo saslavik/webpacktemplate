@@ -1,17 +1,22 @@
+/* Development config:
+  ========================================================================== */
 const webpack = require('webpack')
-const { merge } = require('webpack-merge');
-const baseWebpackConfig = require('./webpack.base.config');
+
+// Source: https://github.com/survivejs/webpack-merge
+const { merge } = require('webpack-merge')
+// Base config
+const baseWebpackConfig = require('./webpack.base.conf')
 
 const devWebpackConfig = merge(baseWebpackConfig, {
   mode: 'development',
-  devtool: 'eval-cheap-module-source-map',
+  devtool: 'cheap-module-eval-source-map',
   devServer: {
     contentBase: baseWebpackConfig.externals.paths.dist,
     port: 8081,
     overlay: {
-      wernings: false,
-      errors: true,
-    },
+      warnings: true,
+      errors: true
+    }
   },
   plugins: [
     new webpack.SourceMapDevToolPlugin({

@@ -4,6 +4,7 @@
       <div class="container">
         <h1>VUE Webpack</h1>
         <p>New message: {{ message }}</p>
+        <input type="text" v-model="input"> {{ input }}
       </div>
     </div>
   </section>
@@ -14,6 +15,7 @@ export default {
   data() {
     return {
       message: null,
+      input: '',
     };
   },
   created() {
