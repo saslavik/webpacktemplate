@@ -17,7 +17,7 @@ export default {
     };
   },
   created() {
-    this.message = 'Hello component';
+    this.message = this.$store.getters.getMessage;
   },
 };
 </script>

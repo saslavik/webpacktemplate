@@ -11,7 +11,13 @@
   <div class="wrapper">
     <div id="app">
       <header></header>
-      <example-component />
+      <section>
+        <div class="container">
+          <h1>Webpack</h1>
+          <button class="btn btnPrimary" @click="component = !component">Show vue component</button>
+        </div>
+      </section>
+      <example-component v-show="component" ></example-component>
     </div>
   </div>
 
