@@ -2,7 +2,8 @@
    <section id="main">
     <div class="wrapper_example">
       <div class="container">
-        <h1>Webpack</h1>
+        <h1>VUE Webpack</h1>
+        <p>New message: {{ message }}</p>
       </div>
     </div>
   </section>
@@ -10,7 +11,14 @@
 
 <script>
 export default {
-
+  data() {
+    return {
+      message: null,
+    };
+  },
+  created() {
+    this.message = 'Hello component';
+  },
 };
 </script>
 

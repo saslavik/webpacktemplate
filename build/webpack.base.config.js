@@ -50,15 +50,7 @@ module.exports = {
         test: /\.scss$/,
         use: [
           "style-loader",
-          {
-            loader: MiniCssExtractPlugin.loader,
-            options: {
-              esModule: true,
-              modules: {
-                namedExport: true,
-              },
-            },
-          },
+          MiniCssExtractPlugin.loader,
           {
             loader: "css-loader",
             options: {
@@ -88,15 +80,7 @@ module.exports = {
         test: /\.css$/,
         use: [
           "style-loader",
-          {
-            loader: MiniCssExtractPlugin.loader,
-            options: {
-                esModule: true,
-                modules: {
-                  namedExport: true,
-                },
-            },
-          },
+          MiniCssExtractPlugin.loader,
           {
             loader: "css-loader",
             options: {
