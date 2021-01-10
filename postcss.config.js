@@ -11,6 +11,9 @@ module.exports = {
       preset: [
         'default',
         {
+          normalizeUrl: false,
+        },
+        {
           discardComments: {
             removeAll: true
           }

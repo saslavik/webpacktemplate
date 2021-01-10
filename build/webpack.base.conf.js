@@ -74,7 +74,8 @@ module.exports = {
         test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
         loader: 'file-loader',
         options: {
-          name: '[name].[ext]'
+          name: '[name].[ext]',
+          url: true,
         }
       },
       {
@@ -150,10 +151,10 @@ module.exports = {
           to: `${PATHS.assets}img`
         },
         // Fonts:
-        // {
-        //   from: `${PATHS.src}/fonts`,
-        //   to: `${PATHS.assets}fonts`
-        // },
+        {
+          from: `${PATHS.src}/fonts`,
+          to: `${PATHS.assets}fonts`
+        },
         // Static (copy to '/'):
         {
           from: `${PATHS.src}/static`,

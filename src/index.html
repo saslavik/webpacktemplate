@@ -16,7 +16,7 @@
           <button class="btn btnPrimary" @click="component = !component">Show vue component</button>
         </div>
       </section>
-      <example-component v-show="component" ></example-component>
+      <example-component v-if="component" ></example-component>
     </div>
   </div>
 
